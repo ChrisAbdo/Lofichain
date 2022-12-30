@@ -59,11 +59,12 @@ const Home = () => {
   };
 
   return (
-    <motion.div
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
+    // <motion.div
+    //   initial={{ y: -100, opacity: 0 }}
+    //   animate={{ y: 0, opacity: 1 }}
+    //   transition={{ duration: 1 }}
+    // >
+    <div>
       <div className="-mt-12 hero text-white h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse max-w-5xl ">
           <Lottie loop animationData={music} play />
@@ -177,7 +178,8 @@ const Home = () => {
           </a>
         </div>
       </footer>
-    </motion.div>
+    </div>
+    // </motion.div>
   );
 };
 
