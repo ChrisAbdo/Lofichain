@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
 
   // Initialize web3
   useEffect(() => {
-    loadWeb3();
+    // loadWeb3();
 
     // Event listener for account change
     window.ethereum.on('accountsChanged', (accounts) => {
@@ -26,17 +26,17 @@ function MyApp({ Component, pageProps }) {
     });
   }, []);
 
-  const loadWeb3 = async () => {
-    try {
-      const web3 = new Web3(window.ethereum);
-      const accounts = await web3.eth.getAccounts();
-      setAccount(accounts[0]);
-      setWeb3Provider(true);
-    } catch (err) {
-      console.log(err);
-      toast.error('No wallet provider detected. Please install Metamask.');
-    }
-  };
+  // const loadWeb3 = async () => {
+  //   try {
+  //     const web3 = new Web3(window.ethereum);
+  //     const accounts = await web3.eth.getAccounts();
+  //     setAccount(accounts[0]);
+  //     setWeb3Provider(true);
+  //   } catch (err) {
+  //     console.log(err);
+  //     toast.error('No wallet provider detected. Please install Metamask.');
+  //   }
+  // };
 
   const Web3Handler = async () => {
     const notification = toast.loading('Connecting wallet...', {
