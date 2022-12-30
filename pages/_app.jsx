@@ -5,7 +5,11 @@ import Head from 'next/head';
 import Navbar from '../components/Navbar';
 
 import Web3 from 'web3';
+import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react';
+
 import toast, { Toaster } from 'react-hot-toast';
+
+const activeChainId = ChainId.Mumbai;
 
 function MyApp({ Component, pageProps }) {
   // Initialize web3 states
@@ -107,12 +111,15 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="bg-black">
-        <Navbar
-          account={account}
-          Web3Handler={Web3Handler}
-          disconnectWallet={disconnectWallet}
-        />
-        <Component {...pageProps} />
+        <ThirdwebProvider desiredChainId={activeChainId}>
+          <Navbar
+            account={account}
+            Web3Handler={Web3Handler}
+            disconnectWallet={disconnectWallet}
+          />
+
+          <Component {...pageProps} />
+        </ThirdwebProvider>
         <Toaster />
       </div>
     </>
